@@ -24,7 +24,7 @@ public interface WebDriverTestService {
                                                       String webinarTitle, String dateAndTime) throws ParseException;
 
     public void verifySuccessfulWebinarCreation(WebDriver driver, String webinarTitle,
-                                                String webinarDescription, String webinarDateAndTime, String webinarLanguage);
+                                                String webinarDescription, String webinarLanguage);
 
     public void goToMyWebinarPage(WebDriver driver);
 }

@@ -122,7 +122,7 @@ public class WebinarTestService implements WebDriverTestService {
     }
 
     //Validate inputs on manage webinar page
-    public void verifySuccessfulWebinarCreation(WebDriver driver, String webinarTitle, String webinarDescription, String webinarDateAndTime, String webinarLanguage) {
+    public void verifySuccessfulWebinarCreation(WebDriver driver, String webinarTitle, String webinarDescription, String webinarLanguage) {
         //Validate scheduled webinar title and manage webinar screen title are same
         String setUpYourWebinar_Title = driver.findElement(By.id("trainingName")).getText();
         assertEquals(setUpYourWebinar_Title, webinarTitle);
@@ -131,9 +131,9 @@ public class WebinarTestService implements WebDriverTestService {
         String setUpYourWebinar_Description = driver.findElement(By.id("trainingDesc")).getText();
         assertEquals(setUpYourWebinar_Description, webinarDescription);
 
-        //Validate scheduled webinar date & time and manage webinar screen date & time are same.
-        String setUpYourWebinar_DateAndTime = driver.findElement(By.xpath(".//*[@id='dateTime']/p")).getText();
-        assertEquals(setUpYourWebinar_DateAndTime, webinarDateAndTime);
+//        //Validate scheduled webinar date & time and manage webinar screen date & time are same.
+//        String setUpYourWebinar_DateAndTime = driver.findElement(By.xpath(".//*[@id='dateTime']/p")).getText();
+//        assertEquals(setUpYourWebinar_DateAndTime, webinarDateAndTime);
 
         //Validate add to calender text is present.
         String setUpYourWebinar_AddToCalender = driver.findElement(By.xpath(".//*[@id='calendarUrl']/li/a")).getText();
