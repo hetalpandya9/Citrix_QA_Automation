@@ -57,16 +57,12 @@ public class ScheduleWebinarTest extends BaseWebDriverTest {
 
         //Selecting occurs value
         driver.findElement(By.id("recurrenceForm_recurs_trig")).click();
-        driver.findElement(By.xpath("//span[contains(text(),'One session')]")).click();
+        driver.findElement(By.xpath("//li[contains(text(),'One session')]")).click();
 
         //Selecting date and time for webinar
         webinarTestService.selectWebinarDateTime(driver, 3, "10:00", "AM", "11:00", "AM");
         String dateAndTime = driver.findElement(By.id("webinarTimesForm.dateTimes_0.baseDate")).getAttribute("value");
         String webinarDateAndTime = dateAndTime + " 10:00 AM" + " - " + "11:00 AM" + " PST";
-
-        //Select webinar time zone
-        driver.findElement(By.id("webinarTimesForm_timeZone_trig")).click();
-        driver.findElement(By.xpath(".//*[@id='webinarTimesForm_timeZone__menu']/ul/li[4]")).click();
 
         //Select webinar language
         driver.findElement(By.id("language_trig")).click();
@@ -116,10 +112,6 @@ public class ScheduleWebinarTest extends BaseWebDriverTest {
         webinarTestService.selectWebinarDateTime(driver, 3, "10:00", "AM", "11:00", "AM");
         String startDateAndTime = driver.findElement(By.id("webinarTimesForm.dateTimes_0.baseDate")).getAttribute("value");
 
-        //Webinar Time Zone
-        driver.findElement(By.id("webinarTimesForm_timeZone_trig")).click();
-        driver.findElement(By.xpath(".//*[@id='webinarTimesForm_timeZone__menu']/ul/li[4]")).click();
-
         //Registration type
         driver.findElement(By.xpath(".//label[contains(text(),'Registration type')]")).isDisplayed();
         driver.findElement(By.xpath(".//*[@id='recurs-attendee-choice']/div[1]/input")).click();
@@ -167,10 +159,6 @@ public class ScheduleWebinarTest extends BaseWebDriverTest {
         //Selecting date and time for webinar
         webinarTestService.selectWebinarDateTime(driver, 3, "10:00", "AM", "11:00", "AM");
         String startDateAndTime = driver.findElement(By.id("webinarTimesForm.dateTimes_0.baseDate")).getAttribute("value");
-
-        //Webinar Time Zone
-        driver.findElement(By.id("webinarTimesForm_timeZone_trig")).click();
-        driver.findElement(By.xpath(".//*[@id='webinarTimesForm_timeZone__menu']/ul/li[4]")).click();
 
         //Registration type
         driver.findElement(By.xpath(".//*[@id='recurs-attendee-choice']/div[1]/input")).click();
@@ -231,10 +219,6 @@ public class ScheduleWebinarTest extends BaseWebDriverTest {
 
         String anotherSession_EndTime = driver.findElement(By.id("webinarTimesForm.dateTimes_1.endTimeLabel")).getText();
         assertEquals(anotherSession_EndTime, "End time");
-
-        //Webinar Time Zone
-        driver.findElement(By.id("webinarTimesForm_timeZone_trig")).click();
-        driver.findElement(By.xpath(".//*[@id='webinarTimesForm_timeZone__menu']/ul/li[4]")).click();
 
         //Registration type
         driver.findElement(By.xpath(".//*[@id='recurs-attendee-choice']/div[1]/input")).click();

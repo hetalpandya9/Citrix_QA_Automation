@@ -36,12 +36,12 @@ public class WebinarTestService implements WebDriverTestService {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("document.getElementById('webinarTimesForm.dateTimes_0.baseDate').setAttribute('value','" + formattedDate + "')");
 
-        //Start Time
+        //Select start time
         js.executeScript("document.getElementById('webinarTimesForm.dateTimes_0.startTime').setAttribute('value', '" + startTime + "')");
         driver.findElement(By.id("webinarTimesForm_dateTimes_0_startAmPm_trig")).click();
         driver.findElement(By.xpath("//li[contains(text(),'AM')]")).click();
 
-        //End Time
+        //Select end time
         js.executeScript("document.getElementById('webinarTimesForm.dateTimes_0.endTime').setAttribute('value', '" + endTime + "')");
         if (endAmPm != null && (endAmPm.equalsIgnoreCase("am") || endAmPm.equalsIgnoreCase("pm"))) {
             driver.findElement(By.id("webinarTimesForm_dateTimes_0_endAmPm_trig")).click();
@@ -116,7 +116,7 @@ public class WebinarTestService implements WebDriverTestService {
         String myWebinarScreen_Title = driver.findElement(By.xpath("//div/ul[1]/li[3]/a/span")).getText();
         assertEquals(myWebinarScreen_Title, webinarTitle);
 
-        // Validate webinar times.
+        // Validate webinar times on my webinar screen.
         String myWebinarScreen_Time = driver.findElement(By.xpath("//div/ul[2]/div[1]/li[2]/span")).getText();
         assertEquals(myWebinarScreen_Time, "10:00 AM - 11:00 AM PST");
     }
@@ -130,10 +130,6 @@ public class WebinarTestService implements WebDriverTestService {
         //Validate scheduled webinar description and manage webinar screen description are same.
         String setUpYourWebinar_Description = driver.findElement(By.id("trainingDesc")).getText();
         assertEquals(setUpYourWebinar_Description, webinarDescription);
-
-//        //Validate scheduled webinar date & time and manage webinar screen date & time are same.
-//        String setUpYourWebinar_DateAndTime = driver.findElement(By.xpath(".//*[@id='dateTime']/p")).getText();
-//        assertEquals(setUpYourWebinar_DateAndTime, webinarDateAndTime);
 
         //Validate add to calender text is present.
         String setUpYourWebinar_AddToCalender = driver.findElement(By.xpath(".//*[@id='calendarUrl']/li/a")).getText();
