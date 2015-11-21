@@ -38,7 +38,7 @@ public class BaseWebDriverTest {
      * Initialize members required to execute the tests.
      */
     public void setUp() throws Exception {
-        driver = config.getProperty("driver").equals("Firefox") ? new FirefoxDriver() : new ChromeDriver();
+        driver = config.getProperty("driver").equalsIgnoreCase("Firefox") ? new FirefoxDriver() : new ChromeDriver();
         baseUrl = config.getProperty("baseUrl");
         myWebinarsPageUrl = baseUrl + "/webinars.tmpl";
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
